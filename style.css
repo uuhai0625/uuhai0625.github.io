@@ -4,11 +4,12 @@
   --paper: #ece2c8;
   --paper-line: #cdbd93;
   --ink: #2b2318;
-  --ink-dim: #6b5f4a;
+  --ink-dim: #5c5140;
   --text: #e7ddc4;
-  --text-dim: #9c9077;
+  --text-dim: #ada088;
   --seal: #9c3324;
   --seal-soft: rgba(156, 51, 36, 0.14);
+  --ember: #e2703a;
   --max-width: 880px;
   font-size: 16px;
 }
@@ -32,7 +33,7 @@ h1, h2 {
 a { color: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--seal);
+  outline: 2px solid var(--ember);
   outline-offset: 2px;
 }
 
@@ -42,7 +43,7 @@ a { color: inherit; }
   width: 128px;
   height: 128px;
   border-radius: 50%;
-  border: 3px solid var(--seal);
+  border: 3px solid var(--ember);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,9 +58,9 @@ a { color: inherit; }
   content: "";
   position: absolute;
   inset: -5px;
-  border: 2px solid var(--seal);
+  border: 2px solid var(--ember);
   border-radius: 50%;
-  opacity: 0.22;
+  opacity: 0.3;
   transform: rotate(9deg);
 }
 
@@ -67,16 +68,16 @@ a { color: inherit; }
   content: "";
   position: absolute;
   inset: 7px;
-  border: 1px solid var(--seal);
+  border: 1px solid var(--ember);
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .seal span {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-weight: 700;
   font-size: 2.8rem;
-  color: var(--seal);
+  color: var(--ember);
   line-height: 1;
 }
 
@@ -153,7 +154,7 @@ a { color: inherit; }
 .toc a:hover,
 .toc a.is-active {
   color: var(--text);
-  border-color: var(--seal);
+  border-color: var(--ember);
 }
 
 /* ---------- Hero ---------- */
@@ -198,8 +199,8 @@ a { color: inherit; }
 
 .social-links a:hover,
 .social-links a:focus-visible {
-  color: var(--seal);
-  border-color: var(--seal);
+  color: var(--ember);
+  border-color: var(--ember);
 }
 
 /* ---------- Main / entries ---------- */
@@ -225,7 +226,7 @@ main {
 .folio {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--seal);
+  color: var(--ember);
   font-variant-numeric: tabular-nums;
 }
 
