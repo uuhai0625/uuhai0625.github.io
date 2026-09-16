@@ -458,6 +458,130 @@ div.row .row-status {
   font-weight: 500;
 }
 
+/* ---------- About meta / FAQ ---------- */
+
+.about-meta {
+  background: var(--paper);
+  border-radius: 3px;
+  padding: 1.1rem 1.3rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 34rem;
+  margin: 0 0 1.6rem;
+}
+
+.about-meta > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.about-meta dt {
+  color: var(--ink-dim);
+  font-size: 0.82rem;
+  width: 5.5rem;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.about-meta dd {
+  color: var(--ink);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.about-meta dd a {
+  color: var(--seal);
+  font-weight: 700;
+}
+
+.faq {
+  max-width: 34rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-item {
+  margin: 0 0 1.1rem;
+}
+
+.faq-item dt {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 0 0.3rem;
+}
+
+.faq-item dt::before {
+  content: "Q. ";
+  color: var(--ember);
+}
+
+.faq-item dd {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.faq-item dd::before {
+  content: "A. ";
+  color: var(--text-dim);
+}
+
+/* ---------- Standalone doc pages (privacy / contact) ---------- */
+
+.doc-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.back-link:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+.doc-main h1 {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  margin: 0 0 2rem;
+  font-weight: 800;
+}
+
+.doc-main h2 {
+  font-family: "Shippori Mincho", serif;
+  color: var(--ember);
+  font-size: 1.05rem;
+  margin: 2.2rem 0 0.7rem;
+}
+
+.doc-main p,
+.doc-main li {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  max-width: 42rem;
+}
+
+.doc-main ul {
+  padding-left: 1.3rem;
+  margin: 0 0 1rem;
+}
+
+.doc-main a {
+  color: var(--ember);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -467,6 +591,25 @@ div.row .row-status {
   border-top: 1px solid rgba(156, 51, 36, 0.2);
   color: var(--text-dim);
   font-size: 0.8rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+.footer-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.82rem;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-nav a:hover {
+  color: var(--ember);
+  border-color: var(--ember);
 }
 
 .site-footer p {
