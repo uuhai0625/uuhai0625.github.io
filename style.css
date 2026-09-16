@@ -132,6 +132,46 @@ a { color: inherit; }
   font-weight: 600;
 }
 
+.toc-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.toc-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 34px;
+  background: linear-gradient(to right, transparent, rgba(33, 29, 23, 0.98));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.toc-wrap::before {
+  content: "\203A";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ember);
+  font-size: 1.2rem;
+  font-weight: 700;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.toc-wrap--end::after,
+.toc-wrap--end::before {
+  opacity: 0;
+}
+
 .toc {
   display: flex;
   gap: 1.3rem;
@@ -635,6 +675,14 @@ div.row .row-status {
   .masthead {
     gap: 1rem;
     padding: 0.6rem 1.1rem;
+  }
+
+  .toc {
+    gap: 0.9rem;
+  }
+
+  .toc a {
+    font-size: 0.82rem;
   }
 
   .hero {
