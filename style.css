@@ -39,7 +39,8 @@ a { color: inherit; }
 
 /* Ember fails contrast on the light paper background, so use the darker seal red there */
 .sheet a:focus-visible,
-.about-meta a:focus-visible {
+.about-meta a:focus-visible,
+.quicklink:focus-visible {
   outline-color: var(--seal);
 }
 
@@ -329,6 +330,65 @@ a { color: inherit; }
 .social-links a:focus-visible {
   color: var(--ember);
   border-color: var(--ember);
+}
+
+/* ---------- Quicklinks (table of contents) ---------- */
+
+.quicklinks-label {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quicklinks {
+  max-width: var(--max-width);
+  margin: 0.7rem auto 3rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.quicklink {
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.quicklink:hover,
+.quicklink:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.quicklink-no {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--seal);
+  font-variant-numeric: tabular-nums;
+}
+
+.quicklink-title {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.quicklink-desc {
+  color: var(--ink-dim);
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 /* ---------- Main / entries ---------- */
