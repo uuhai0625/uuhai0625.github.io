@@ -54,7 +54,7 @@
   <a class="lang-switch" href="../" hreflang="ja">日本語</a>
 </header>
 
-<header class="hero" id="top">
+<div class="hero" id="top">
   <div class="hero-text">
     <div class="seal" aria-hidden="true"><span>u</span></div>
     <h1>uuhai</h1>
@@ -71,7 +71,7 @@
     <p class="id-name">Kutao</p>
     <p class="id-role">LINE Sticker Character No. 1</p>
   </div>
-</header>
+</div>
 
 <main>
 
@@ -488,8 +488,12 @@
     entries.forEach(function (entry) {
       var i = sections.indexOf(entry.target);
       if (i === -1) return;
-      if (entry.isIntersecting) links[i].classList.add("is-active");
-      else links[i].classList.remove("is-active");
+      if (entry.isIntersecting) {
+        links[i].classList.add("is-active");
+        links[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      } else {
+        links[i].classList.remove("is-active");
+      }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
   sections.forEach(function (s) { if (s) observer.observe(s); });
