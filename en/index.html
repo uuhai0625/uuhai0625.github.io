@@ -33,6 +33,7 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="masthead">
   <a class="masthead-brand" href="#top">
@@ -53,7 +54,7 @@
       <a href="#camera">Camera</a>
     </nav>
   </div>
-  <a class="lang-switch" href="../" hreflang="ja">日本語</a>
+  <a class="lang-switch" href="../" hreflang="ja" lang="ja">日本語</a>
 </header>
 
 <div class="hero" id="top">
@@ -124,7 +125,7 @@
   </a>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 
   <section class="entry" id="about">
     <div class="entry-head">
@@ -170,7 +171,7 @@
     <div class="sheet">
       <a class="row" href="https://store.line.me/stickershop/author/6489609/ja" target="_blank" rel="noopener">
         <span class="row-avatar">
-          <img src="../images/kutao.png" alt="Kutao" loading="lazy">
+          <img src="../images/kutao.png" alt="" loading="lazy">
           <span class="stamp stamp--live" aria-hidden="true"></span>
         </span>
         <span class="row-body">
@@ -181,7 +182,7 @@
       </a>
       <a class="row" href="https://store.line.me/stickershop/product/36392506/ja" target="_blank" rel="noopener">
         <span class="row-avatar">
-          <img src="../images/tasogare.png" alt="Tasogare" loading="lazy">
+          <img src="../images/tasogare.png" alt="" loading="lazy">
           <span class="stamp stamp--live" aria-hidden="true"></span>
         </span>
         <span class="row-body">
@@ -192,7 +193,7 @@
       </a>
       <a class="row" href="https://store.line.me/stickershop/product/36401193/ja" target="_blank" rel="noopener">
         <span class="row-avatar">
-          <img src="../images/zubizuba.png" alt="Zubizuba" loading="lazy">
+          <img src="../images/zubizuba.png" alt="" loading="lazy">
           <span class="stamp stamp--live" aria-hidden="true"></span>
         </span>
         <span class="row-body">
@@ -203,7 +204,7 @@
       </a>
       <a class="row" href="https://store.line.me/stickershop/product/36428178/ja" target="_blank" rel="noopener">
         <span class="row-avatar">
-          <img src="../images/murineko.png" alt="Murineko" loading="lazy">
+          <img src="../images/murineko.png" alt="" loading="lazy">
           <span class="stamp stamp--live" aria-hidden="true"></span>
         </span>
         <span class="row-body">
@@ -214,7 +215,7 @@
       </a>
       <a class="row" href="https://store.line.me/stickershop/product/36574890/ja" target="_blank" rel="noopener">
         <span class="row-avatar">
-          <img src="../images/azatoi.png" alt="Azatoi" loading="lazy">
+          <img src="../images/azatoi.png" alt="" loading="lazy">
           <span class="stamp stamp--live" aria-hidden="true"></span>
         </span>
         <span class="row-body">
@@ -570,6 +571,7 @@
   var sections = links.map(function (a) {
     return document.getElementById(a.getAttribute("href").slice(1));
   });
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!("IntersectionObserver" in window)) return;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -577,9 +579,11 @@
       if (i === -1) return;
       if (entry.isIntersecting) {
         links[i].classList.add("is-active");
-        links[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        links[i].setAttribute("aria-current", "location");
+        links[i].scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", inline: "center", block: "nearest" });
       } else {
         links[i].classList.remove("is-active");
+        links[i].removeAttribute("aria-current");
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });

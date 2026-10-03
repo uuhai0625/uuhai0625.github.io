@@ -11,10 +11,31 @@
   --seal-soft: rgba(156, 51, 36, 0.14);
   --ember: #e2703a;
   --max-width: 880px;
-  font-size: 16px;
+  font-size: 100%;
 }
 
 * { box-sizing: border-box; }
+
+html { scroll-padding-top: 5rem; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.7rem 1.1rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+main:focus { outline: none; }
 
 body {
   margin: 0;
@@ -371,6 +392,11 @@ a { color: inherit; }
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
+/* the ring sits outside the paper card, on the dark desk, where seal red is only 2.3:1 */
+.quicklink:focus-visible {
+  outline-color: var(--ember);
+}
+
 .quicklink-no {
   font-size: 0.78rem;
   font-weight: 700;
@@ -492,6 +518,13 @@ main {
 a.row:hover,
 a.row:focus-visible {
   background: rgba(156, 51, 36, 0.08);
+}
+
+/* .sheet clips outside outlines, so draw the focus ring inside the row */
+a.row:focus-visible {
+  outline: 3px solid var(--seal);
+  outline-offset: -3px;
+  background: rgba(156, 51, 36, 0.12);
 }
 
 .row-avatar {
@@ -730,6 +763,7 @@ div.row .row-status {
   color: var(--text-dim);
   text-decoration: none;
   font-size: 0.82rem;
+  padding-block: 0.3rem;
   border-bottom: 1px solid transparent;
 }
 
