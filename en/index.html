@@ -579,6 +579,13 @@
     return document.getElementById(a.getAttribute("href").slice(1));
   });
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tocEl = document.querySelector(".toc");
+  // 目次の横位置だけを動かす(scrollIntoViewはページ本体のスクロールを中断するため使わない)
+  function centerLink(a) {
+    if (!tocEl) return;
+    var delta = a.getBoundingClientRect().left - tocEl.getBoundingClientRect().left - (tocEl.clientWidth - a.offsetWidth) / 2;
+    tocEl.scrollTo({ left: tocEl.scrollLeft + delta, behavior: reduceMotion ? "auto" : "smooth" });
+  }
   if (!("IntersectionObserver" in window)) return;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -587,7 +594,7 @@
       if (entry.isIntersecting) {
         links[i].classList.add("is-active");
         links[i].setAttribute("aria-current", "location");
-        links[i].scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", inline: "center", block: "nearest" });
+        centerLink(links[i]);
       } else {
         links[i].classList.remove("is-active");
         links[i].removeAttribute("aria-current");
@@ -595,7 +602,6 @@
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
   sections.forEach(function (s) { if (s) observer.observe(s); });
-  var tocEl = document.querySelector(".toc");
   window.addEventListener("scroll", function () {
     if (window.scrollY < 40 && tocEl && tocEl.scrollLeft > 0) tocEl.scrollLeft = 0;
   }, { passive: true });
