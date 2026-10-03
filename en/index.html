@@ -595,6 +595,10 @@
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
   sections.forEach(function (s) { if (s) observer.observe(s); });
+  var tocEl = document.querySelector(".toc");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY < 40 && tocEl && tocEl.scrollLeft > 0) tocEl.scrollLeft = 0;
+  }, { passive: true });
 })();
 </script>
 
