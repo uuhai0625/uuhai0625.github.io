@@ -61,8 +61,15 @@ a { color: inherit; }
 /* Ember fails contrast on the light paper background, so use the darker seal red there */
 .sheet a:focus-visible,
 .about-meta a:focus-visible,
-.quicklink:focus-visible {
+.quicklink:focus-visible,
+.tool-index a:focus-visible,
+.tool-index summary:focus-visible {
   outline-color: var(--seal);
+}
+
+/* The header TOC clips outlines vertically, so draw them inside the link */
+.toc a:focus-visible {
+  outline-offset: -2px;
 }
 
 /* ---------- Hanko seal mark ---------- */
@@ -526,6 +533,11 @@ main {
 .tool-index-title {
   margin: 0 0 0.2rem;
   font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tool-index:not([open]) .tool-index-title {
+  margin-bottom: 0;
 }
 .tool-index h4 {
   margin: 1rem 0 0.3rem;
@@ -547,7 +559,7 @@ main {
   font-size: 0.92rem;
   color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: var(--paper-line);
+  text-decoration-color: var(--ink-dim);
   text-underline-offset: 3px;
 }
 .tool-index a:hover,
@@ -857,9 +869,20 @@ div.row .row-status {
 
   .row-meta,
   .row-status {
-    margin-left: 0;
+    /* line up with the row text: dot (12px) or avatar (52px) plus the 1rem gap */
+    margin-left: calc(12px + 1rem);
     flex-basis: 100%;
     margin-top: 0.35rem;
+  }
+
+  .row:has(.row-avatar) .row-meta,
+  .row:has(.row-avatar) .row-status {
+    margin-left: calc(52px + 1rem);
+  }
+
+  .site-footer p,
+  .quicklink-desc {
+    font-size: 0.88rem;
   }
 
   .pinned-photo {
