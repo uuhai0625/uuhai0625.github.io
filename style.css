@@ -862,6 +862,21 @@ div.row .row-status {
     padding: 3rem 1.2rem 2.4rem;
   }
 
+  /* Keep the first screen for the name and contents: smaller seal, no decorative ID card */
+  .seal:not(.seal--mini) {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1rem;
+  }
+
+  .seal:not(.seal--mini) span {
+    font-size: 1.6rem;
+  }
+
+  .id-card {
+    display: none;
+  }
+
   .row {
     flex-wrap: wrap;
     padding: 0.9rem 1rem;
