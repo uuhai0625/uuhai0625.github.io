@@ -368,7 +368,13 @@
   </url>
   <url>
     <loc>https://uuhai0625.github.io/kairanban-junban/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://uuhai0625.github.io/shukin-hyo/</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
