@@ -2,17 +2,17 @@
    dark when the OS asks for it. Body 16px / line-height 1.75 (Digital Agency design system),
    rows at least 56px tall (WCAG 2.5.5 / HIG 44pt / Material 48dp). Hanko seal + Mincho headings kept as the brand. */
 :root {
-  --bg: #f5efe1;
-  --surface: #fffcf4;
-  --surface-hover: #f8eedc;
-  --line: #e0d3b3;
+  --bg: #ebe2cc;
+  --surface: #fffdf6;
+  --surface-hover: #f7eedb;
+  --line: #dccfae;
   --text: #2b2318;
   --text-dim: #5a4f3e;
   --seal: #9c3324;
   --accent: #9c3324;
   --focus: #9c3324;
   --shadow: 0 1px 2px rgba(60, 40, 20, 0.06), 0 4px 14px rgba(60, 40, 20, 0.06);
-  --header-bg: rgba(245, 239, 225, 0.94);
+  --header-bg: rgba(235, 226, 204, 0.96);
   --avatar-bg: #ffffff;
   --max-width: 880px;
   --text-width: 40em;
@@ -28,11 +28,11 @@
     --line: #3e362a;
     --text: #ede5d0;
     --text-dim: #b8ac93;
-    --seal: #e2703a;
+    --seal: #ef8a57;
     --accent: #ef8a57;
     --focus: #ef8a57;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --header-bg: rgba(29, 26, 21, 0.94);
+    --header-bg: rgba(29, 26, 21, 0.96);
     --avatar-bg: #f6f1e5;
   }
 }
@@ -224,7 +224,7 @@ main:focus { outline: none; }
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
+  min-height: 44px;
   color: var(--text-dim);
   text-decoration: none;
   font-size: 0.85rem;
@@ -271,8 +271,8 @@ main:focus { outline: none; }
 .social-links a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 0 0.95rem;
+  min-height: 44px;
+  padding: 0 1rem;
   color: var(--text);
   text-decoration: none;
   font-size: 0.92rem;
@@ -286,7 +286,7 @@ main:focus { outline: none; }
 .id-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   width: 160px;
   padding: 10px 10px 12px;
   box-shadow: var(--shadow);
@@ -343,7 +343,7 @@ main:focus { outline: none; }
 .quicklink {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0.85rem 1rem;
   min-height: 56px;
   text-decoration: none;
@@ -363,6 +363,7 @@ main:focus { outline: none; }
   line-height: 1.9;
 }
 .quicklink-title {
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
   font-weight: 700;
   color: var(--text);
   font-size: 1rem;
@@ -392,7 +393,7 @@ main {
   gap: 1rem;
   margin: 0 0 0.6rem;
   padding-bottom: 0.6rem;
-  border-bottom: 2px solid var(--line);
+  border-bottom: 3px double var(--seal);
 }
 .entry-head-text {
   display: flex;
@@ -404,7 +405,7 @@ main {
   height: 56px;
   flex-shrink: 0;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid var(--line);
 }
 .pinned-photo img {
@@ -435,7 +436,7 @@ main {
 .sheet {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: var(--shadow);
 }
@@ -461,7 +462,7 @@ a.row:focus-visible {
   width: 52px;
   height: 52px;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--avatar-bg);
   border: 1px solid var(--line);
   display: flex;
@@ -529,7 +530,7 @@ div.row .row-status::after { content: none; }
 .tool-index {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 0 1.2rem;
   margin-top: 1rem;
   box-shadow: var(--shadow);
@@ -542,6 +543,9 @@ div.row .row-status::after { content: none; }
   font-weight: 700;
   cursor: pointer;
 }
+.tool-index-title::before { content: "B8"; margin-right: 0.5rem; color: var(--seal); }
+.tool-index[open] > .tool-index-title::before { content: "BE"; }
+.tool-index-title::-webkit-details-marker { display: none; }
 .tool-index[open] { padding-bottom: 1.1rem; }
 .tool-index h4 {
   margin: 1rem 0 0.2rem;
@@ -558,8 +562,10 @@ div.row .row-status::after { content: none; }
   gap: 0 1.2rem;
 }
 .tool-index a {
-  display: inline-block;
-  padding: 0.4rem 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
   font-size: 0.94rem;
   color: var(--text);
   text-decoration: underline;
@@ -573,7 +579,7 @@ div.row .row-status::after { content: none; }
 .about-meta {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 1rem 1.2rem;
   display: flex;
   flex-direction: column;
@@ -691,23 +697,25 @@ div.row .row-status::after { content: none; }
   .hero h1 { margin: 0; font-size: 1.9rem; }
   .tagline, .social-links { grid-column: 1 / -1; }
   .tagline { font-size: 1rem; margin: 0.8rem 0 0.9rem; }
+  .social-links { gap: 0.4rem; }
+  .social-links a { padding: 0 0.75rem; font-size: 0.875rem; }
+  .quicklinks { margin-bottom: 2.4rem; }
   .id-card { display: none; }
 
   .quicklinks-label, .quicklinks { padding: 0 1rem; }
   .quicklink { padding: 0.7rem 0.8rem; }
-  /* all nine tiles fit the first phone screen (NN/g: 57% of viewing time is above the fold) */
-  .quicklink-desc { display: none; }
+  .quicklink-desc { grid-column: 1 / -1; font-size: 0.875rem; }
 
   main { padding: 1rem 1rem 2rem; }
   .row { flex-wrap: wrap; padding: 0.85rem 1rem; }
   .row-meta,
   .row-status {
     margin-left: calc(10px + 1rem);
-    flex-basis: 100%;
+    flex-basis: calc(100% - 10px - 1rem);
     margin-top: 0.2rem;
   }
   .row:has(.row-avatar) .row-meta,
-  .row:has(.row-avatar) .row-status { margin-left: calc(52px + 1rem); }
+  .row:has(.row-avatar) .row-status { margin-left: calc(52px + 1rem); flex-basis: calc(100% - 52px - 1rem); }
   .row-body { flex: 1 1 0; }
   .pinned-photo { width: 48px; height: 48px; }
   .site-footer { padding: 2rem 1rem 3rem; }
@@ -715,5 +723,5 @@ div.row .row-status::after { content: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .seal { animation: none; }
-  * { transition: none !important; }
+  *, *::before, *::after { transition: none !important; }
 }
