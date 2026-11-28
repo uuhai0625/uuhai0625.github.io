@@ -14,6 +14,7 @@
   --shadow: 0 1px 2px rgba(60, 40, 20, 0.06), 0 4px 14px rgba(60, 40, 20, 0.06);
   --header-bg: rgba(235, 226, 204, 0.96);
   --avatar-bg: #ffffff;
+  --on-accent: #ffffff;
   --max-width: 880px;
   --text-width: 40em;
   font-size: 100%;
@@ -34,6 +35,7 @@
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     --header-bg: rgba(29, 26, 21, 0.96);
     --avatar-bg: #f6f1e5;
+    --on-accent: #1d1a15;
   }
 }
 
@@ -45,7 +47,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  /* system Japanese gothic: no web font download for body text (was ~870KB) */
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -115,7 +118,7 @@ main:focus { outline: none; }
   opacity: 0.6;
 }
 .seal span {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: inherit;
   font-weight: 700;
   font-size: 2.2rem;
   color: var(--seal);
@@ -320,6 +323,34 @@ main:focus { outline: none; }
   margin: 0;
   text-align: center;
 }
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 1.2rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: var(--surface);
+  font-weight: 700;
+  text-decoration: none;
+}
+.cta::after { content: "›" / ""; margin-left: 0.3rem; }
+.cta:hover { background: var(--surface-hover); }
+.cta--primary { background: var(--accent); color: var(--on-accent); }
+.cta--primary:hover { background: var(--accent); filter: brightness(1.08); }
+
+.social-block {
+  max-width: var(--max-width);
+  margin: -1.6rem auto 2.4rem;
+}
+.social-block .social-links { padding: 0 1.5rem; margin-top: 0.5rem; }
 
 /* ---------- Quicklinks (category tiles) ---------- */
 
@@ -696,7 +727,9 @@ div.row .row-status::after { content: none; }
   .seal:not(.seal--mini) { width: 56px; height: 56px; margin: 0; }
   .seal:not(.seal--mini) span { font-size: 1.35rem; }
   .hero h1 { margin: 0; font-size: 1.9rem; }
-  .tagline, .social-links { grid-column: 1 / -1; }
+  .tagline, .hero-cta { grid-column: 1 / -1; }
+  .cta { flex: 1 1 auto; justify-content: center; }
+  .social-block .social-links { padding: 0 1rem; }
   .tagline { font-size: 1rem; margin: 0.8rem 0 0.9rem; }
   .social-links { gap: 0.4rem; }
   .social-links a { padding: 0 0.75rem; font-size: 0.875rem; }
