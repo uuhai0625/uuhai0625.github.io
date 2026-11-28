@@ -182,7 +182,7 @@ main:focus { outline: none; }
   transition: opacity 0.15s ease;
 }
 .toc-wrap::before {
-  content: "\203A";
+  content: "\203A" / "";
   position: absolute;
   right: 2px;
   top: 50%;
@@ -521,7 +521,7 @@ a.row:focus-visible {
   flex-shrink: 0;
   white-space: nowrap;
 }
-.row-status::after { content: " \203A"; }
+.row-status::after { content: " \203A" / ""; }
 div.row .row-status { color: var(--text-dim); font-weight: 400; }
 div.row .row-status::after { content: none; }
 
@@ -543,11 +543,11 @@ div.row .row-status::after { content: none; }
   font-weight: 700;
   cursor: pointer;
 }
-.tool-index-title::before { content: "B8"; margin-right: 0.5rem; color: var(--seal); }
-.tool-index[open] > .tool-index-title::before { content: "BE"; }
+.tool-index-title::before { content: "▸" / ""; margin-right: 0.5rem; color: var(--seal); }
+.tool-index[open] > .tool-index-title::before { content: "▾" / ""; }
 .tool-index-title::-webkit-details-marker { display: none; }
 .tool-index[open] { padding-bottom: 1.1rem; }
-.tool-index h4 {
+.tool-index h3 {
   margin: 1rem 0 0.2rem;
   font-size: 0.875rem;
   color: var(--seal);
@@ -678,6 +678,7 @@ div.row .row-status::after { content: none; }
 
 @media (max-width: 700px) {
   .quicklinks { grid-template-columns: repeat(2, 1fr); }
+  .quicklink:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 @media (max-width: 640px) {
